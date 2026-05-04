@@ -3,8 +3,9 @@ chcp 65001 >nul
 setlocal enabledelayedexpansion
 
 REM ========================================
-REM AI Agent Auto-Start Script (v4)
+REM AI Agent Auto-Start Script (v5)
 REM Auto-runs when PC boots
+REM Uses 'py' launcher (works even if 'Add to PATH' was unchecked)
 REM Korean messages come from bot.py via Python (UTF-8 safe)
 REM ========================================
 
@@ -19,6 +20,16 @@ if not exist "bot.py" (
     exit /b 1
 )
 
+REM Prefer 'py' (Python launcher, always on PATH after official installer)
+REM Fallback to 'python' if 'py' missing for some reason
+where py >nul 2>&1
+if %errorlevel%==0 (
+    set "PYBIN=py"
+) else (
+    set "PYBIN=python"
+)
+
+echo [INFO] Using %PYBIN% as Python executable
 echo [INFO] Waiting 10 seconds for network...
 timeout /t 10 /nobreak >nul
 
@@ -31,7 +42,7 @@ echo ========================================
 echo [%date% %time%] Starting AI Agent (attempt #!RESTART_COUNT!)
 echo ========================================
 
-python "%USERPROFILE%\Desktop\bot.py"
+%PYBIN% "%USERPROFILE%\Desktop\bot.py"
 set EXIT_CODE=!errorlevel!
 
 echo.

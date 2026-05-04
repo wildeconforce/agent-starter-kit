@@ -27,8 +27,10 @@ ChatGPT 처럼 단순 대화만 하는 게 아니라, "AI 트렌드 검색해서
 
 PowerShell:
 ```
-python -m pip install -r requirements.txt
+py -m pip install -r requirements.txt
 ```
+
+> `python` 대신 `py` 사용 권장 — Python Launcher 라서 설치 시 "Add to PATH" 체크 안 했어도 무조건 작동함. `py` 가 안 되면 `python -m pip install -r requirements.txt` 시도.
 
 ### 3. bot.py 키 입력
 
