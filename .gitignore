@@ -1,0 +1,17 @@
+# 봇이 만들고 읽는 작업 폴더
+agent-workspace/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 환경 / 비밀
+.env
+*.token
+credentials.json
+secrets/
+
+# 본인 키가 박힌 bot.py 사본 (실수로 커밋 방지)
+bot.py.local
+bot.local.py
