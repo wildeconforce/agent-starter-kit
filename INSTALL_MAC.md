@@ -194,6 +194,7 @@ AI 에이전트 시작 중...
 | 에러 | 해결 |
 |---|---|
 | `python3: command not found` | 준비물 3 다시 (Python 설치) |
+| `ModuleNotFoundError: No module named 'google'` (또는 'telegram', 'ddgs' 등) | STEP 3 의 pip install 이 미완 또는 다른 Python 환경에 깔린 것. Terminal 에 `pip3 install -U google-generativeai python-telegram-bot ddgs requests beautifulsoup4` 다시 입력. 그래도 안 되면 `python3 -m pip install -U google-generativeai python-telegram-bot ddgs requests beautifulsoup4` 시도. |
 | `can't open file 'bot.py': [Errno 2] No such file or directory` | bot.py 가 Desktop 에 없음. STEP 4 다시. |
 | `Forbidden: bot was blocked by the user` | 텔레그램에서 본인 봇한테 먼저 `/start` 누르고 다시 |
 | `401 Unauthorized` | API 키 또는 봇 토큰이 틀림. STEP 5 다시 확인 |
@@ -238,6 +239,13 @@ chmod +x ~/Desktop/start_bot.command
 [주의] 처음 더블클릭 시 macOS 가 **"확인되지 않은 개발자"** 경고를 띄울 수 있습니다.
 - 시스템 설정 → 개인정보 보호 및 보안 → "그래도 열기" 클릭
 - 또는 Finder 에서 파일 우클릭 → "열기" → "열기" 한 번 더 → 이후로는 더블클릭 OK
+
+❌ **`EPERM: process.cwd failed` 또는 cd 권한 에러가 뜰 때**:
+Terminal 이 Desktop / 홈 폴더 접근 권한이 막혀있는 상태입니다. macOS 의 보안 정책 때문.
+- 시스템 설정 (Cmd+,) → **개인정보 보호 및 보안** → **전체 디스크 접근 권한**
+- 목록에서 **터미널** 토글을 켜기 (ON)
+- 만약 목록에 터미널이 없으면 **+ 버튼** 클릭 → **유틸리티 → 터미널** 추가 → 토글 ON
+- Terminal 완전히 닫고 (Cmd+Q) 다시 열기 → 재시도
 
 ### Mac 부팅 시 자동 실행 (옵션)
 
